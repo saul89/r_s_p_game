@@ -2,55 +2,53 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Game</title>
+    <meta charset="UTF-8">
+    <title>Game</title>
 </head>
 
 <body>
 
 
-  <script>
-    var options = ["r", "p", "s"];
-    var user;
-    var computer;
-    var userwin = 0;
-    var computerwin = 0;
-    var tie = 0;
+    <script>
+        var options = ["r", "p", "s"];
+        var user;
+        var computer;
+        var userwin = 0;
+        var computerwin = 0;
+        var tie = 0;
 
+        for (var round = 1; round <= 3; round++) {
+            user = prompt("Enter r or p or s");
+            user = user.toLowerCase();
 
-    for (var round = 1; round <= 3; round++) {
-      user = prompt("Enter r or p or s");
-      computer = options[Math.floor(Math.random() * options.length)];
-      alert("Computer choose: " + computer);
-      user = user.toLowerCase();
+            if (!options.includes(user)) {
+                alert("You didn´t enter a valid input!\r\nPlease enter r or p or s");
+                round--;
+            } else {
+                computer = options[Math.floor(Math.random() * options.length)];
+                alert("Computer choose: " + computer);
 
-
-      if (!options.includes(user)) {
-        alert("You didn´t enter a valid input!\r\nPlease enter r or p or s");
-        round--;
-      } 
-      else {
-
-        if (user == computer) {
-          tie++
-        } else if (user == "r" && computer == "s") {
-          userwin++;
-        } else if (user == "p" && computer == "r") {
-          userwin++;
-        } else if (user == "s" && computer == "p") {
-          userwin++;
+                if (user == computer) {
+                    tie++
+                    alert("no one wins")
+                } else if (user == "r" && computer == "s") {
+                    userwin++;
+                    alert("user wins")
+                } else if (user == "p" && computer == "r") {
+                    userwin++;
+                    alert("user wins")
+                } else if (user == "s" && computer == "p") {
+                    userwin++;
+                    alert("user wins")
+                } else {
+                    computerwin++
+                    alert("computer wins")
+                };
+            }
         }
-        else { computerwin++ };
-      }
 
-    }
-
-    alert("Wins: " + userwin + " " + "Losses: " + computerwin + " " + "Ties: " + tie);
-
-
-
-
-  </script>
+        alert("Wins: " + userwin + " " + "Losses: " + computerwin + " " + "Ties: " + tie);
+    </script>
 
 </body>
 
