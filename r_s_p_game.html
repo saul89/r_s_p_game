@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Game</title>
+</head>
+
+<body>
+
+
+  <script>
+    var options = ["r", "p", "s"];
+    var user;
+    var computer;
+    var userwin = 0;
+    var computerwin = 0;
+
+    // if user !== "p"||"r"||"s"
+
+
+
+    for (var round = 1; round <= 3; round++) {
+      user = prompt("Enter r or p or s");
+      computer = options[Math.floor(Math.random() * options.length)];
+      alert("Computer choose: " + computer);
+      user = user.toLowerCase();
+
+
+      if (user == computer) {
+        alert("tie")
+      } else if (user == "r" && computer == "s") {
+        userwin++;
+      } else if (user == "p" && computer == "r") {
+        userwin++;
+      } else if (user == "s" && computer == "p") {
+        userwin++;
+      }
+      else { computerwin++ };
+
+    }
+
+    alert(userwin);
+
+
+
+
+  </script>
+
+</body>
+
+</html>
