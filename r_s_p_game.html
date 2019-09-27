@@ -15,9 +15,7 @@
     var computer;
     var userwin = 0;
     var computerwin = 0;
-
-    // if user !== "p"||"r"||"s"
-
+    var tie = 0;
 
 
     for (var round = 1; round <= 3; round++) {
@@ -27,20 +25,27 @@
       user = user.toLowerCase();
 
 
-      if (user == computer) {
-        alert("tie")
-      } else if (user == "r" && computer == "s") {
-        userwin++;
-      } else if (user == "p" && computer == "r") {
-        userwin++;
-      } else if (user == "s" && computer == "p") {
-        userwin++;
+      if (!options.includes(user)) {
+        alert("You didn´t enter a valid input!\r\nPlease enter r or p or s");
+        round--;
+      } 
+      else {
+
+        if (user == computer) {
+          tie++
+        } else if (user == "r" && computer == "s") {
+          userwin++;
+        } else if (user == "p" && computer == "r") {
+          userwin++;
+        } else if (user == "s" && computer == "p") {
+          userwin++;
+        }
+        else { computerwin++ };
       }
-      else { computerwin++ };
 
     }
 
-    alert(userwin);
+    alert("Wins: " + userwin + " " + "Losses: " + computerwin + " " + "Ties: " + tie);
 
 
 
